@@ -1,0 +1,23 @@
+{
+  "name" : "bmaxjsc",
+  "version": "0.0.1",
+  "description": "A compiler for bmax written in TypeScript",
+  "scripts": {
+    "compile-ts": "cd src; find . -name \"*.ts\" | xargs ../node_modules/.bin/tsc --module commonjs --sourceMap; cd ..",
+    "bundle-client" : "cd src/client; ../../node_modules/.bin/browserify main.ts --o static/js/main.js; cd ../..",
+
+    "make" : "npm run-script compile-ts && npm run-script bundle-client",
+    "serve" : "npm run-script make && node src/server/main.js"
+  },
+
+  "dependencies": {
+    "express" : "latest",
+    "typescript" : "latest",
+    "browserify" : "latest",
+    "jison" : "latest",
+    "jison-lex" : "latest"
+  },
+
+  "author": "Aaron Nech",
+  "license": "N/A"
+}
